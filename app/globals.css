@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: var(--font-playfair), "Playfair Display", "Georgia", serif;
+  --font-sans: var(--font-inter), "Inter", "Helvetica Neue", Arial, sans-serif;
+
+  /* Manteca / crema cálida */
+  --color-manteca-50: #f6e2ce;
+  --color-manteca-100: #f9eede;
+  --color-manteca-200: #f2dcbe;
+  --color-manteca-300: #ead0ad;
+  --color-manteca-400: #dcba92;
+  --color-manteca-500: #c89f6d;
+
+  /* Rojo de marca */
+  --color-brand-500: #c0392b;
+  --color-brand-600: #a62626;
+  --color-brand-700: #8f1d1d;
+  --color-brand-800: #711515;
+
+  /* Marrones cálidos para texto / detalles */
+  --color-cocoa-400: #a08768;
+  --color-cocoa-500: #7c5f42;
+  --color-cocoa-600: #5f4630;
+  --color-cocoa-700: #473525;
+  --color-cocoa-800: #322416;
+
+  --shadow-soft: 0 10px 40px -12px rgb(71 53 37 / 0.18);
+  --shadow-card: 0 6px 24px -10px rgb(71 53 37 / 0.25);
+
+  --radius-4xl: 2rem;
+}
+
+:root {
+  --background: #f6e2ce;
+  --foreground: #473525;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: #a62626;
+    color: #fff8e7;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+  }
+}
+
+@layer utilities {
+  .container-ketty {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}

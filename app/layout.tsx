@@ -1,0 +1,101 @@
+import type { Metadata } from "next";
+import { Suspense } from "react";
+import { Playfair_Display, Inter } from "next/font/google";
+import "./globals.css";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { CartDrawer } from "@/components/cart/CartDrawer";
+import { SearchDialog } from "@/components/layout/SearchDialog";
+import { MobileMenu } from "@/components/layout/MobileMenu";
+import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
+import { siteConfig } from "@/config/site";
+
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: "La Cocina Ketty | Pastas Caseras Artesanales",
+    template: "%s | La Cocina Ketty",
+  },
+  description: siteConfig.description,
+  applicationName: siteConfig.name,
+  keywords: [
+    "pastas caseras",
+    "pastas artesanales",
+    "ravioles",
+    "sorrentinos",
+    "ñoquis",
+    "tallarines",
+    "lasagna",
+    "comida casera",
+    "Buenos Aires",
+    "Argentina",
+  ],
+  openGraph: {
+    type: "website",
+    locale: siteConfig.locale,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: "La Cocina Ketty | Pastas Caseras Artesanales",
+    description: siteConfig.description,
+    images: [
+      {
+        url: "/images/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "La Cocina Ketty - Pastas caseras artesanales",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "La Cocina Ketty | Pastas Caseras Artesanales",
+    description: siteConfig.description,
+    images: ["/images/og.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+export default function RootLayout({ children }: LayoutProps<"/">) {
+  return (
+    <html lang="es" className={`${playfair.variable} ${inter.variable} h-full antialiased`}>
+      <body className="flex min-h-full flex-col bg-manteca-50 text-cocoa-800">
+        <a
+          href="#contenido"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-brand-600 focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white"
+        >
+          Saltar al contenido
+        </a>
+        <Suspense
+          fallback={
+            <div className="sticky top-0 z-40 h-16 border-b border-cocoa-400/20 bg-manteca-100/90 lg:h-20" />
+          }
+        >
+          <Header />
+        </Suspense>
+        <main id="contenido" className="flex-1">
+          {children}
+        </main>
+        <Footer />
+        <CartDrawer />
+        <SearchDialog />
+        <MobileMenu />
+        <FloatingWhatsApp />
+      </body>
+    </html>
+  );
+}

@@ -1,0 +1,436 @@
+import type { Product } from "@/types";
+import { pexelsImage } from "./categories";
+
+/**
+ * DATOS DE PRODUCTOS DE EJEMPLO.
+ * Los precios, textos e imágenes son placeholders configurables.
+ * Para usar imágenes propias, reemplazá las URLs generadas por pexelsImage()
+ * por tus archivos en /public/images o cualquier otra URL permitida.
+ */
+export const products: Product[] = [
+  {
+    id: "ravioles-ricota-y-jamon",
+    slug: "ravioles-de-ricota-y-jamon",
+    name: "Ravioles de ricota y jamón",
+    shortDescription: "Ravioles artesanales rellenos de ricota cremosa y jamón.",
+    description:
+      "Nuestra receta más pedida: una masa fina de harina y huevo rellena con ricota fresca, jamón cocido natural y un toque de nuez moscada. Se nota que son caseros en cada bocado. Rinde 4 porciones.",
+    price: 8500,
+    category: "ravioles",
+    images: [pexelsImage(36999963), pexelsImage(32421665), pexelsImage(33372786)],
+    weight: "500 g",
+    servings: "4 porciones",
+    ingredients: [
+      "Harina 0000",
+      "Huevos frescos",
+      "Ricota",
+      "Jamón cocido natural",
+      "Nuez moscada",
+      "Sal",
+    ],
+    available: true,
+    featured: true,
+    soldCount: 542,
+    conservation: "Conservar refrigerado entre 1°C y 5°C en el envase original.",
+    cooking: "Herví en abundante agua con sal de 6 a 8 minutos hasta que suban a la superficie.",
+  },
+  {
+    id: "ravioles-de-verdura",
+    slug: "ravioles-de-verdura",
+    name: "Ravioles de verdura",
+    shortDescription: "Rellenos con espinaca y ricota, el clásico de siempre.",
+    description:
+      "Ravioles caseros rellenos con espinaca fresca, ricota y queso parmesano. Livianos, sabrosos y perfectos con una salsa de tomate casera.",
+    price: 7800,
+    category: "ravioles",
+    images: [pexelsImage(33372786), pexelsImage(34565210), pexelsImage(34961794)],
+    weight: "500 g",
+    servings: "4 porciones",
+    ingredients: ["Harina 0000", "Huevos", "Espinaca", "Ricota", "Queso parmesano", "Sal"],
+    available: true,
+    soldCount: 389,
+    conservation: "Conservar refrigerado entre 1°C y 5°C en el envase original.",
+    cooking: "Herví en abundante agua con sal de 5 a 7 minutos.",
+  },
+  {
+    id: "ravioles-de-carne",
+    slug: "ravioles-de-carne",
+    name: "Ravioles de carne",
+    shortDescription: "Rellenos jugosos de carne de corte casero.",
+    description:
+      "Ravioles rellenos con carne de paleta cocida lentamente, cebolla y condimentos de la casa. Un clásico argentino que no puede faltar.",
+    price: 9000,
+    category: "ravioles",
+    images: [pexelsImage(4663247), pexelsImage(18674111), pexelsImage(24538683)],
+    weight: "500 g",
+    servings: "4 porciones",
+    ingredients: ["Harina 0000", "Huevos", "Carne de paleta", "Cebolla", "Pimentón", "Perejil", "Sal"],
+    available: true,
+    featured: true,
+    badge: "Clásico",
+    soldCount: 431,
+    conservation: "Conservar refrigerado entre 1°C y 5°C en el envase original.",
+    cooking: "Herví en abundante agua con sal de 7 a 9 minutos.",
+  },
+  {
+    id: "ravioles-de-calabaza",
+    slug: "ravioles-de-calabaza",
+    name: "Ravioles de calabaza",
+    shortDescription: "Suaves y dulces, rellenos de calabaza asada.",
+    description:
+      "Ravioles de masa fina rellenos con calabaza asada al horno, ricota y un toque de azúcar mascabo. Un favorito de temporada.",
+    price: 8200,
+    category: "ravioles",
+    images: [pexelsImage(32421665), pexelsImage(36999964), pexelsImage(17663511)],
+    weight: "500 g",
+    servings: "4 porciones",
+    ingredients: ["Harina 0000", "Huevos", "Calabaza", "Ricota", "Azúcar mascabo", "Sal"],
+    available: true,
+    badge: "Nuevo",
+    soldCount: 120,
+    conservation: "Conservar refrigerado entre 1°C y 5°C en el envase original.",
+    cooking: "Herví en abundante agua con sal de 6 a 8 minutos.",
+  },
+  {
+    id: "sorrentinos-de-jamon-y-mozzarella",
+    slug: "sorrentinos-de-jamon-y-mozzarella",
+    name: "Sorrentinos de jamón y mozzarella",
+    shortDescription: "Pastas rellenas artesanales con jamón y mozzarella.",
+    description:
+      "Nuestros sorrentinos insignia: grandes, generosos y rellenos con jamón cocido y mozzarella fresca. Un abrazo de sabor en cada bocado.",
+    price: 9200,
+    category: "sorrentinos",
+    images: [pexelsImage(33396606), pexelsImage(27305260), pexelsImage(37000121)],
+    weight: "500 g",
+    servings: "3-4 porciones",
+    ingredients: ["Harina 0000", "Huevos", "Jamón cocido", "Mozzarella", "Ricota", "Pimienta", "Sal"],
+    available: true,
+    featured: true,
+    soldCount: 611,
+    conservation: "Conservar refrigerado entre 1°C y 5°C en el envase original.",
+    cooking: "Herví en abundante agua con sal de 7 a 9 minutos.",
+  },
+  {
+    id: "sorrentinos-de-calabaza-y-queso",
+    slug: "sorrentinos-de-calabaza-y-queso",
+    name: "Sorrentinos de calabaza y queso",
+    shortDescription: "Calabaza asada con queso cremoso en pasta fina.",
+    description:
+      "Sorrentinos rellenos con calabaza asada y queso cremoso. Ideales con manteca derretida, salvia y queso rallado.",
+    price: 8800,
+    category: "sorrentinos",
+    images: [pexelsImage(27305260), pexelsImage(36999965), pexelsImage(4871266)],
+    weight: "500 g",
+    servings: "3-4 porciones",
+    ingredients: ["Harina 0000", "Huevos", "Calabaza", "Queso cremoso", "Ricota", "Nuez moscada", "Sal"],
+    available: true,
+    soldCount: 205,
+    conservation: "Conservar refrigerado entre 1°C y 5°C en el envase original.",
+    cooking: "Herví en abundante agua con sal de 7 a 9 minutos.",
+  },
+  {
+    id: "sorrentinos-de-pollo-y-queso",
+    slug: "sorrentinos-de-pollo-y-queso",
+    name: "Sorrentinos de pollo y queso",
+    shortDescription: "Rellenos con pollo desmenuzado y queso fundente.",
+    description:
+      "Sorrentinos rellenos con pollo a la cacerola bien condimentado y queso fundente. Perfectos para toda la familia.",
+    price: 8900,
+    category: "sorrentinos",
+    images: [pexelsImage(4871266), pexelsImage(32742941), pexelsImage(33396606)],
+    weight: "500 g",
+    servings: "3-4 porciones",
+    ingredients: ["Harina 0000", "Huevos", "Pollo", "Queso", "Cebolla", "Condimentos de la casa"],
+    available: true,
+    soldCount: 178,
+    conservation: "Conservar refrigerado entre 1°C y 5°C en el envase original.",
+    cooking: "Herví en abundante agua con sal de 7 a 9 minutos.",
+  },
+  {
+    id: "tallarines-caseros",
+    slug: "tallarines-caseros",
+    name: "Tallarines caseros",
+    shortDescription: "Tallarines frescos elaborados artesanalmente.",
+    description:
+      "Tallarines de huevo frescos, estirados y cortados a mano todos los días. La base perfecta para tu salsa preferida.",
+    price: 5500,
+    category: "tallarines",
+    images: [pexelsImage(9807689), pexelsImage(6748861), pexelsImage(5907590)],
+    weight: "500 g",
+    servings: "5-6 porciones",
+    ingredients: ["Harina 0000", "Huevos frescos", "Sal", "Aceite de oliva"],
+    available: true,
+    featured: true,
+    soldCount: 720,
+    conservation: "Refrigerar entre 1°C y 5°C hasta 48 horas.",
+    cooking: "Herví en abundante agua con sal de 3 a 4 minutos.",
+  },
+  {
+    id: "tallarines-al-huevo",
+    slug: "tallarines-al-huevo",
+    name: "Tallarines al huevo",
+    shortDescription: "Con más huevo, extra sabor y color dorado.",
+    description:
+      "Tallarines con mayor proporción de huevo, de color dorado y sabor intenso. Una pasta más firme que sostiene mejor las salsas.",
+    price: 6000,
+    category: "tallarines",
+    images: [pexelsImage(6748860), pexelsImage(6748861), pexelsImage(4699966)],
+    weight: "500 g",
+    servings: "5-6 porciones",
+    ingredients: ["Harina 0000", "Huevos", "Yema extra", "Sal"],
+    available: true,
+    badge: "Nuevo",
+    soldCount: 254,
+    conservation: "Refrigerar entre 1°C y 5°C hasta 48 horas.",
+    cooking: "Herví en abundante agua con sal de 3 a 4 minutos.",
+  },
+  {
+    id: "tallarines-de-espinaca",
+    slug: "tallarines-de-espinaca",
+    name: "Tallarines de espinaca",
+    shortDescription: "Verdes, frescos y con sabor a verdura de estación.",
+    description:
+      "Tallarines frescos con incorporación de espinaca en la masa. Suaves, verdes y hermosos en el plato.",
+    price: 6500,
+    category: "tallarines",
+    images: [pexelsImage(28243912), pexelsImage(10054561), pexelsImage(10049559)],
+    weight: "500 g",
+    servings: "5-6 porciones",
+    ingredients: ["Harina 0000", "Huevos", "Espinaca", "Sal"],
+    available: true,
+    soldCount: 98,
+    conservation: "Refrigerar entre 1°C y 5°C hasta 48 horas.",
+    cooking: "Herví en abundante agua con sal de 3 a 4 minutos.",
+  },
+  {
+    id: "noquis-de-papa",
+    slug: "noquis-de-papa",
+    name: "Ñoquis de papa",
+    shortDescription: "Ñoquis caseros de papa, suaves y listos para cocinar.",
+    description:
+      "Ñoquis de papa elaborados a mano, suaves como nube y con el sabor de los de siempre. Ideales con salsa tuco, bolognesa o manteca con salvia.",
+    price: 4800,
+    category: "noquis",
+    images: [pexelsImage(9807605), pexelsImage(17942175), pexelsImage(37316433)],
+    weight: "500 g",
+    servings: "4-5 porciones",
+    ingredients: ["Papa", "Harina 0000", "Huevo", "Sal", "Nuez moscada"],
+    available: true,
+    featured: true,
+    badge: "Más vendido",
+    soldCount: 830,
+    conservation: "Refrigerar entre 1°C y 5°C hasta 48 horas.",
+    cooking: "Herví en abundante agua con sal de 4 a 6 minutos hasta que suban.",
+  },
+  {
+    id: "noquis-de-espinaca",
+    slug: "noquis-de-espinaca",
+    name: "Ñoquis de espinaca",
+    shortDescription: "Verdes, caseros y llenos de sabor a verdura.",
+    description:
+      "Ñoquis de papa y espinaca fresca, bien verdes y con un toque de queso parmesano rallado en la masa.",
+    price: 5500,
+    category: "noquis",
+    images: [pexelsImage(14619210), pexelsImage(5451005), pexelsImage(6659665)],
+    weight: "500 g",
+    servings: "4-5 porciones",
+    ingredients: ["Papa", "Espinaca", "Harina 0000", "Huevo", "Queso parmesano", "Sal"],
+    available: true,
+    soldCount: 187,
+    conservation: "Refrigerar entre 1°C y 5°C hasta 48 horas.",
+    cooking: "Herví en abundante agua con sal de 4 a 6 minutos.",
+  },
+  {
+    id: "noquis-de-calabaza",
+    slug: "noquis-de-calabaza",
+    name: "Ñoquis de calabaza",
+    shortDescription: "De color naranja, suaves y levemente dulces.",
+    description:
+      "Ñoquis de calabaza asada y papa, coloridos y delicados. Un plato que reconforta, ideal para los más chicos.",
+    price: 5900,
+    category: "noquis",
+    images: [pexelsImage(9249364), pexelsImage(15580891), pexelsImage(31911031)],
+    weight: "500 g",
+    servings: "4-5 porciones",
+    ingredients: ["Calabaza", "Papa", "Harina 0000", "Huevo", "Sal"],
+    available: true,
+    soldCount: 140,
+    conservation: "Refrigerar entre 1°C y 5°C hasta 48 horas.",
+    cooking: "Herví en abundante agua con sal de 4 a 6 minutos.",
+  },
+  {
+    id: "lasagna-casera",
+    slug: "lasagna-casera",
+    name: "Lasagna casera",
+    shortDescription: "Lasagna artesanal con capas de pasta, salsa y mucho queso.",
+    description:
+      "Lasagna lista para llevar al horno: capas de pasta fresca, salsa bolognesa casera y abundante muzzarella. Un clásico para compartir.",
+    price: 12500,
+    category: "lasagnas",
+    images: [pexelsImage(5949895), pexelsImage(5949921), pexelsImage(13823542)],
+    weight: "700 g",
+    servings: "4-5 porciones",
+    ingredients: ["Pasta fresca", "Salsa bolognesa", "Muzzarella", "Salsa blanca", "Queso parmesano"],
+    available: true,
+    featured: true,
+    soldCount: 340,
+    conservation: "Refrigerar entre 1°C y 5°C hasta 72 horas.",
+    cooking: "Horneá a 180°C durante 35-40 minutos, tapada con papel aluminio los primeros 25.",
+  },
+  {
+    id: "lasagna-de-verdura",
+    slug: "lasagna-de-verdura",
+    name: "Lasagna de verdura",
+    shortDescription: "Espinaca, ricota y salsa blanca en capas.",
+    description:
+      "Lasagna vegetariana con espinaca, ricota y salsa blanca cremosa, gratinada con queso por arriba.",
+    price: 11500,
+    category: "lasagnas",
+    images: [pexelsImage(37679127), pexelsImage(5949901), pexelsImage(31119092)],
+    weight: "700 g",
+    servings: "4-5 porciones",
+    ingredients: ["Pasta fresca", "Espinaca", "Ricota", "Salsa blanca", "Muzzarella"],
+    available: true,
+    soldCount: 150,
+    conservation: "Refrigerar entre 1°C y 5°C hasta 72 horas.",
+    cooking: "Horneá a 180°C durante 30-35 minutos.",
+  },
+  {
+    id: "lasagna-bolognesa",
+    slug: "lasagna-bolognesa",
+    name: "Lasagna bolognesa",
+    shortDescription: "Salsa bolognesa de cocción lenta y queso gratinado.",
+    description:
+      "Nuestra versión más contundente: bolognesa de carne estofada por horas, pasta fresca y queso gratinado hasta dorar.",
+    price: 13000,
+    category: "lasagnas",
+    images: [pexelsImage(18273993), pexelsImage(34474026), pexelsImage(9650082)],
+    weight: "700 g",
+    servings: "4-5 porciones",
+    ingredients: ["Pasta fresca", "Carne", "Salsa de tomate", "Salsa blanca", "Muzzarella", "Queso parmesano"],
+    available: true,
+    badge: "Nuevo",
+    soldCount: 95,
+    conservation: "Refrigerar entre 1°C y 5°C hasta 72 horas.",
+    cooking: "Horneá a 180°C durante 35-40 minutos.",
+  },
+  {
+    id: "raviolones-de-calabaza-y-jamon",
+    slug: "raviolones-de-calabaza-y-jamon",
+    name: "Raviolones de calabaza y jamón",
+    shortDescription: "Grandes pastas rellenas, especialidad de la casa.",
+    description:
+      "Raviolones XXL rellenos de calabaza asada y jamón, terminados con manteca y salvia. Un plato que parece de restaurante.",
+    price: 9500,
+    category: "pastas-rellenas",
+    images: [pexelsImage(17663511), pexelsImage(37000116), pexelsImage(37000118)],
+    weight: "500 g",
+    servings: "3-4 porciones",
+    ingredients: ["Harina 0000", "Huevos", "Calabaza", "Jamón", "Ricota", "Salvia"],
+    available: true,
+    soldCount: 210,
+    conservation: "Refrigerar entre 1°C y 5°C en el envase original.",
+    cooking: "Herví en abundante agua con sal de 8 a 10 minutos.",
+  },
+  {
+    id: "sorrentinos-de-hongos-y-queso",
+    slug: "sorrentinos-de-hongos-y-queso",
+    name: "Sorrentinos de hongos y queso",
+    shortDescription: "Hongos salteados con queso en pasta fina.",
+    description:
+      "Sorrentinos rellenos con hongos salteados con ajo y perejil, más queso fundente. Elegantes y llenos de sabor.",
+    price: 9800,
+    category: "pastas-rellenas",
+    images: [pexelsImage(34565210), pexelsImage(32742948), pexelsImage(18674111)],
+    weight: "500 g",
+    servings: "3-4 porciones",
+    ingredients: ["Harina 0000", "Huevos", "Hongos", "Ajo", "Perejil", "Queso", "Sal"],
+    available: true,
+    badge: "Especial",
+    soldCount: 165,
+    conservation: "Refrigerar entre 1°C y 5°C en el envase original.",
+    cooking: "Herví en abundante agua con sal de 7 a 9 minutos.",
+  },
+  {
+    id: "combo-familiar",
+    slug: "combo-familiar",
+    name: "Combo familiar",
+    shortDescription: "Para 4 personas: ravioles, sorrentinos y ñoquis.",
+    description:
+      "El combo perfecto para una mesa familiar: un paquete de ravioles de ricota y jamón, uno de sorrentinos y otro de ñoquis de papa. Ahorrás comprando el combo.",
+    price: 32000,
+    category: "combos",
+    images: [pexelsImage(31637792), pexelsImage(20545313), pexelsImage(9866824)],
+    weight: "3 x 500 g",
+    servings: "4-6 personas",
+    ingredients: [
+      "Ravioles de ricota y jamón",
+      "Sorrentinos de jamón y mozzarella",
+      "Ñoquis de papa",
+    ],
+    available: true,
+    featured: true,
+    badge: "Ahorro",
+    soldCount: 225,
+    conservation: "Refrigerar entre 1°C y 5°C en el envase original.",
+    cooking: "Cada pasta conserva su modo de cocción indicado en el envase.",
+  },
+  {
+    id: "combo-semana",
+    slug: "combo-semana",
+    name: "Combo de la semana",
+    shortDescription: "Tres variedades de pastas para toda la semana.",
+    description:
+      "Ideal para planificar la semana: tallarines caseros, ravioles de verdura y lasagna casera. Incluye sugerencias de salsas para cada día.",
+    price: 45000,
+    category: "combos",
+    images: [pexelsImage(9866824), pexelsImage(20545313), pexelsImage(5908202)],
+    weight: "2 kg en total",
+    servings: "6-8 personas",
+    ingredients: ["Tallarines caseros", "Ravioles de verdura", "Lasagna casera"],
+    available: true,
+    soldCount: 87,
+    conservation: "Refrigerar entre 1°C y 5°C en el envase original.",
+    cooking: "Incluye instructivo de cocción y conservación por cada pasta.",
+  },
+];
+
+export function getProductBySlug(slug: string): Product | undefined {
+  return products.find((product) => product.slug === slug);
+}
+
+export function getRelatedProducts(product: Product, limit = 4): Product[] {
+  const related = products.filter(
+    (p) => p.id !== product.id && p.category === product.category && p.available,
+  );
+  if (related.length >= limit) return related.slice(0, limit);
+  const others = products.filter(
+    (p) => p.id !== product.id && p.available && !related.includes(p),
+  );
+  return [...related, ...others].slice(0, limit);
+}
+
+export function getFeaturedProducts(): Product[] {
+  return products.filter((p) => p.featured && p.available);
+}
+
+export function getProductsByCategory(categoryId: string): Product[] {
+  return products.filter((p) => p.category === categoryId);
+}
+
+export function searchProducts(query: string): Product[] {
+  const normalized = query.trim().toLowerCase();
+  if (!normalized) return [];
+  return products.filter((product) => {
+    const haystack = [
+      product.name,
+      product.description,
+      product.shortDescription,
+      product.category,
+      ...product.ingredients,
+    ]
+      .join(" ")
+      .toLowerCase();
+    return haystack.includes(normalized);
+  });
+}
