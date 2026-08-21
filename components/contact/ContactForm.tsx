@@ -25,14 +25,14 @@ export function ContactForm() {
 
   if (sentUrl) {
     return (
-      <div className="flex flex-col items-center gap-4 rounded-2xl bg-emerald-50 p-8 text-center">
-        <span className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-600/10 text-emerald-600">
+      <div className="flex flex-col items-center gap-4 rounded-[2rem] bg-sage-100 p-8 text-center">
+        <span className="flex h-16 w-16 items-center justify-center rounded-full bg-sage-600/10 text-sage-700">
           <CheckCircle2 className="h-9 w-9" aria-hidden="true" />
         </span>
         <h3 className="font-serif text-xl font-semibold text-cocoa-800">
           ¡Consulta enviada!
         </h3>
-        <p className="max-w-sm text-sm leading-relaxed text-cocoa-500">
+        <p className="max-w-sm text-sm leading-relaxed text-cocoa-600">
           Abrimos WhatsApp con tu mensaje listo para enviar. Si no se abrió,
           tocá el botón de abajo.
         </p>
@@ -40,7 +40,7 @@ export function ContactForm() {
           href={sentUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-[#25D366] hover:bg-[#1ebe5b]"
+          className="bg-wa hover:bg-wa-dark"
         >
           <MessageCircle className="h-4 w-4" aria-hidden="true" />
           Abrir WhatsApp
@@ -51,7 +51,7 @@ export function ContactForm() {
             setSentUrl(null);
             reset();
           }}
-          className="text-xs font-medium text-cocoa-500 underline-offset-4 hover:text-brand-700 hover:underline"
+          className="text-xs font-medium text-cocoa-600 underline-offset-4 hover:text-brand-700 hover:underline"
         >
           Enviar otra consulta
         </button>
@@ -106,7 +106,7 @@ export function ContactForm() {
           <MessageCircle className="h-5 w-5" aria-hidden="true" />
           Enviar por WhatsApp
         </Button>
-        <p className="text-xs text-cocoa-400">
+        <p className="text-xs text-cocoa-600">
           Al enviar se abre WhatsApp con tu mensaje. No es necesario que
           escribas nada más.
         </p>

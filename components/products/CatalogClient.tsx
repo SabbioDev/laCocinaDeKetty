@@ -148,7 +148,7 @@ export function CatalogClient({
   return (
     <div className="container-ketty grid grid-cols-1 gap-10 py-10 lg:grid-cols-[240px_1fr]">
       <aside className="hidden lg:block">
-        <div className="sticky top-28 rounded-3xl border border-cocoa-400/20 bg-manteca-100/60 p-6">
+        <div className="sticky top-28 rounded-[2rem] border border-cocoa-400/20 bg-[#fdfaf2]/80 p-6 shadow-sm backdrop-blur-sm">
           <FiltersPanel
             category={category}
             onCategoryChange={setCategory}
@@ -170,7 +170,7 @@ export function CatalogClient({
             className="relative"
           >
             <Search
-              className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-cocoa-400"
+              className="pointer-events-none absolute left-5 top-1/2 h-5 w-5 -translate-y-1/2 text-cocoa-600"
               aria-hidden="true"
             />
             <input
@@ -179,20 +179,20 @@ export function CatalogClient({
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Buscá por nombre, categoría o ingrediente…"
               aria-label="Buscar productos"
-              className="w-full rounded-full border border-cocoa-400/50 bg-white py-3 pl-12 pr-4 text-sm text-cocoa-800 shadow-sm placeholder:text-cocoa-400 focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-600"
+              className="w-full rounded-2xl border border-cocoa-400/40 bg-[#fdfaf2] py-3 pl-12 pr-4 text-sm text-cocoa-800 shadow-sm placeholder:text-cocoa-600/60 focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500/40"
             />
           </form>
 
           <div className="flex items-center justify-between gap-3">
-            <p className="text-sm text-cocoa-500">
-              <strong className="text-cocoa-800">{filtered.length}</strong>{" "}
+            <p className="text-sm text-cocoa-600">
+              <strong className="txt-num text-cocoa-800">{filtered.length}</strong>{" "}
               {filtered.length === 1 ? "producto" : "productos"}
             </p>
             <div className="flex items-center gap-2">
               <button
                 type="button"
                 onClick={() => setFiltersOpen(true)}
-                className="inline-flex items-center gap-2 rounded-full border border-cocoa-400/50 bg-white px-4 py-2 text-sm font-medium text-cocoa-700 transition-colors hover:border-brand-600 hover:text-brand-700 lg:hidden"
+                className="inline-flex items-center gap-2 rounded-full border border-cocoa-400/50 bg-[#fdfaf2] px-4 py-2 text-sm font-medium text-cocoa-700 transition-colors hover:border-brand-600 hover:text-brand-700 focus-visible:outline-none lg:hidden"
               >
                 <SlidersHorizontal className="h-4 w-4" aria-hidden="true" />
                 Filtros
@@ -204,7 +204,7 @@ export function CatalogClient({
                 id="orden"
                 value={sort}
                 onChange={(e) => setSort(e.target.value as SortOption)}
-                className="rounded-full border border-cocoa-400/50 bg-white px-4 py-2 text-sm font-medium text-cocoa-700 shadow-sm focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-600"
+                className="rounded-full border border-cocoa-400/50 bg-[#fdfaf2] px-4 py-2 text-sm font-medium text-cocoa-700 shadow-sm focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500/40"
               >
                 {sortOptions.map((option) => (
                   <option key={option.id} value={option.id}>

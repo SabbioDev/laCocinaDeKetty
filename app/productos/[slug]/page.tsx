@@ -100,28 +100,43 @@ export default async function ProductoPage({ params }: ProductoPageProps) {
         <ProductDetail product={product} />
 
         <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {infoItems.map((item) => (
+          {infoItems.map((item, index) => (
             <div
               key={item.title}
-              className="rounded-3xl border border-cocoa-400/20 bg-white p-5"
+              className="rounded-[2rem] border border-cocoa-400/20 bg-[#fdfaf2] p-6 shadow-sm transition-shadow hover:shadow-card"
             >
-              <h2 className="font-serif text-base font-semibold text-cocoa-800">
+              <span className="font-serif text-sm italic text-brand-600">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h2 className="mt-2 font-serif text-base font-bold text-cocoa-800">
                 {item.title}
               </h2>
-              <p className="mt-1.5 text-sm leading-relaxed text-cocoa-500">
+              <p className="mt-1.5 text-sm leading-relaxed text-cocoa-600">
                 {item.description}
               </p>
             </div>
           ))}
         </div>
 
-        <div className="mt-12 rounded-3xl bg-manteca-200/60 p-6 text-center">
-          <p className="font-serif text-xl font-semibold text-cocoa-800">
+        <div className="relative mt-14 overflow-hidden rounded-[2.5rem] bg-cocoa-900 px-8 py-10 text-center text-manteca-50">
+          <div
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(36rem 18rem at 50% -40%, rgb(194 74 48 / 0.25), transparent 60%)",
+            }}
+            aria-hidden="true"
+          />
+          <p className="eyebrow text-manteca-200">Tu mesa, servida</p>
+          <p className="mt-3 font-serif text-3xl font-bold italic sm:text-4xl">
             {product.name} · {product.weight}
           </p>
-          <p className="mt-1 text-sm text-cocoa-500">
-            {formatPrice(product.price)} por {product.servings}
-          </p>
+          <div className="mt-1 flex items-center justify-center gap-2 text-sm">
+            <span className="txt-num font-semibold text-gold">
+              {formatPrice(product.price)}
+            </span>
+            <span className="text-manteca-100/70">por {product.servings}</span>
+          </div>
         </div>
       </div>
 
@@ -131,6 +146,7 @@ export default async function ProductoPage({ params }: ProductoPageProps) {
             <SectionHeading
               eyebrow="Para vos"
               title="También te puede gustar"
+              id="relacionados-titulo"
               className="mb-8"
             />
             <Reveal>

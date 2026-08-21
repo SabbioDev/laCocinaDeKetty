@@ -8,17 +8,18 @@ export function FeaturedProducts() {
   const products = getFeaturedProducts();
 
   return (
-    <section className="bg-manteca-100 py-16 sm:py-24" aria-labelledby="favoritos-titulo">
+    <section className="bg-manteca-100 py-20 sm:py-28">
       <div className="container-ketty">
         <SectionHeading
           eyebrow="Los favoritos"
           title="Los favoritos de la casa"
           subtitle="Las pastas que más eligen nuestros clientes, listas para tu mesa."
+          id="favoritos-titulo"
         />
         <Reveal>
           <ProductGrid products={products} />
         </Reveal>
-        <div className="mt-12 flex justify-center">
+        <div className="mt-14 flex justify-center">
           <Button href="/pastas" size="lg" variant="primary">
             Ver todas las pastas
           </Button>

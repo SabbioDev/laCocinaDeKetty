@@ -42,10 +42,10 @@ export function FilterCheckbox({
     <label className="flex cursor-pointer items-center gap-3">
       <span
         className={cn(
-          "flex h-5 w-5 items-center justify-center rounded-md border-2 transition-colors",
+          "flex h-5 w-5 items-center justify-center rounded-lg border-2 transition-colors",
           checked
             ? "border-brand-600 bg-brand-600"
-            : "border-cocoa-400/60 bg-white",
+            : "border-cocoa-400/60 bg-[#fdfaf2]",
         )}
         aria-hidden="true"
       >
@@ -61,8 +61,17 @@ export function FilterCheckbox({
         onChange={(e) => onChange(e.target.checked)}
         className="sr-only"
       />
-      <span className="text-sm text-cocoa-700">{label}</span>
+      <span className="text-sm font-medium text-cocoa-700">{label}</span>
     </label>
+  );
+}
+
+function GroupTitle({ children }: { children: React.ReactNode }) {
+  return (
+    <h3 className="eyebrow mb-3.5 flex items-center gap-2 text-cocoa-600">
+      <span className="h-px w-4 bg-brand-600/50" aria-hidden="true" />
+      {children}
+    </h3>
   );
 }
 
@@ -77,19 +86,17 @@ export function FiltersPanel({
   hasActiveFilters,
 }: FiltersPanelProps) {
   return (
-    <div className="flex flex-col gap-7">
+    <div className="flex flex-col gap-8">
       <div>
-        <h3 className="mb-3 text-xs font-semibold uppercase tracking-widest text-cocoa-400">
-          Categoría
-        </h3>
+        <GroupTitle>Categoría</GroupTitle>
         <div className="flex flex-wrap gap-2 lg:flex-col lg:gap-1.5">
           <button
             type="button"
             onClick={() => onCategoryChange("todas")}
             className={cn(
-              "inline-flex w-fit justify-start rounded-full px-3 py-1.5 text-sm font-medium transition-colors lg:rounded-xl lg:px-3 lg:py-2",
+              "inline-flex w-fit justify-start rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 focus-visible:outline-none lg:rounded-2xl",
               category === "todas"
-                ? "bg-brand-600 text-white"
+                ? "bg-brand-600 text-white shadow-[0_10px_18px_-10px_rgb(168_58_36/0.7)]"
                 : "text-cocoa-600 hover:bg-manteca-200 hover:text-brand-700",
             )}
           >
@@ -101,9 +108,9 @@ export function FiltersPanel({
               type="button"
               onClick={() => onCategoryChange(cat.id)}
               className={cn(
-                "inline-flex w-fit justify-start rounded-full px-3 py-1.5 text-sm font-medium transition-colors lg:rounded-xl lg:px-3 lg:py-2",
+                "inline-flex w-fit justify-start rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 focus-visible:outline-none lg:rounded-2xl",
                 category === cat.id
-                  ? "bg-brand-600 text-white"
+                  ? "bg-brand-600 text-white shadow-[0_10px_18px_-10px_rgb(168_58_36/0.7)]"
                   : "text-cocoa-600 hover:bg-manteca-200 hover:text-brand-700",
               )}
             >
@@ -114,9 +121,7 @@ export function FiltersPanel({
       </div>
 
       <div>
-        <h3 className="mb-3 text-xs font-semibold uppercase tracking-widest text-cocoa-400">
-          Precio
-        </h3>
+        <GroupTitle>Precio</GroupTitle>
         <div className="flex flex-col gap-1.5">
           {priceBuckets.map((bucket) => (
             <button
@@ -124,10 +129,10 @@ export function FiltersPanel({
               type="button"
               onClick={() => onPriceChange(bucket.id)}
               className={cn(
-                "inline-flex w-full justify-start rounded-xl px-3 py-2 text-sm font-medium transition-colors",
+                "inline-flex w-full justify-start rounded-2xl border px-3.5 py-2 text-sm font-medium transition-all duration-200 focus-visible:outline-none",
                 price === bucket.id
-                  ? "bg-manteca-200 text-brand-700"
-                  : "text-cocoa-600 hover:bg-manteca-100",
+                  ? "border-brand-600/40 bg-brand-600/10 text-brand-700"
+                  : "border-transparent text-cocoa-600 hover:bg-manteca-200",
               )}
             >
               {bucket.label}
@@ -137,9 +142,7 @@ export function FiltersPanel({
       </div>
 
       <div>
-        <h3 className="mb-3 text-xs font-semibold uppercase tracking-widest text-cocoa-400">
-          Disponibilidad
-        </h3>
+        <GroupTitle>Disponibilidad</GroupTitle>
         <FilterCheckbox
           checked={onlyAvailable}
           onChange={onAvailabilityChange}
@@ -151,7 +154,7 @@ export function FiltersPanel({
         <button
           type="button"
           onClick={onClear}
-          className="inline-flex w-fit items-center gap-2 rounded-full border border-cocoa-400/50 px-4 py-2 text-sm font-medium text-cocoa-600 transition-colors hover:border-brand-600 hover:text-brand-700"
+          className="inline-flex w-fit items-center gap-2 rounded-full border border-cocoa-400/50 px-4 py-2 text-sm font-medium text-cocoa-600 transition-colors hover:border-brand-600 hover:text-brand-700 focus-visible:outline-none"
         >
           Limpiar filtros
         </button>

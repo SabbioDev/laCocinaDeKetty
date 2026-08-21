@@ -3,62 +3,79 @@ import { siteConfig } from "@/config/site";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
+import { PastaRibbon } from "@/components/ui/PastaRibbon";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 export function ContactPreview() {
   const whatsappUrl = buildWhatsAppUrl();
 
   return (
-    <section
-      className="relative overflow-hidden bg-cocoa-800 py-16 text-manteca-100 sm:py-20"
-      aria-labelledby="contacto-titulo"
-    >
+    <section className="relative overflow-hidden bg-cocoa-900 py-20 text-manteca-100 sm:py-24">
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(46rem 26rem at 0% 0%, rgb(194 74 48 / 0.12), transparent 58%), radial-gradient(40rem 24rem at 105% 100%, rgb(217 164 65 / 0.1), transparent 55%)",
+        }}
+        aria-hidden="true"
+      />
       <Container>
-        <div className="grid items-center gap-10 lg:grid-cols-2">
-          <div className="flex flex-col gap-6">
+        <div className="relative grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="flex flex-col gap-8">
             <SectionHeading
+              tone="dark"
               align="left"
               eyebrow="Contacto"
               title="Hablá con nosotros"
               subtitle="Escribinos por WhatsApp, seguinos en Instagram o pasate por el local. Respondemos rápido."
-              className="mb-0 [&_h2]:text-manteca-100 [&_p]:text-manteca-100/70 [&_span]:text-manteca-200"
+              id="contacto-titulo"
+              className="mb-0"
             />
-            <div className="flex flex-col gap-4 text-sm">
-              <p className="inline-flex items-start gap-3">
-                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-manteca-200" aria-hidden="true" />
-                <span>
-                  <strong className="block font-medium text-white">Dirección</strong>
-                  {siteConfig.address}
+            <div className="grid max-w-xl grid-cols-1 gap-6 sm:grid-cols-2">
+              <div className="flex items-start gap-3">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-brand-600/15 text-brand-400">
+                  <MapPin className="h-5 w-5" aria-hidden="true" />
                 </span>
-              </p>
-              <p className="inline-flex items-start gap-3">
-                <Clock className="mt-0.5 h-5 w-5 shrink-0 text-manteca-200" aria-hidden="true" />
-                <span className="flex flex-col gap-1">
-                  <strong className="font-medium text-white">Horarios</strong>
+                <p className="text-sm">
+                  <strong className="block font-serif text-base text-manteca-50">Dirección</strong>
+                  <span className="text-manteca-100/70">{siteConfig.address}</span>
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-brand-600/15 text-brand-400">
+                  <Clock className="h-5 w-5" aria-hidden="true" />
+                </span>
+                <p className="flex flex-col gap-1 text-sm">
+                  <strong className="font-serif text-base text-manteca-50">Horarios</strong>
                   {siteConfig.hours.map((hour) => (
                     <span key={hour.days} className="text-manteca-100/70">
                       {hour.days}: {hour.time}
                     </span>
                   ))}
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-brand-600/15 text-brand-400">
+                  <MessageCircle className="h-5 w-5" aria-hidden="true" />
                 </span>
-              </p>
-              <p className="inline-flex items-start gap-3">
-                <MessageCircle className="mt-0.5 h-5 w-5 shrink-0 text-manteca-200" aria-hidden="true" />
-                <span>
-                  <strong className="block font-medium text-white">WhatsApp</strong>
-                  {siteConfig.phone}
-                </span>
-              </p>
+                <p className="text-sm">
+                  <strong className="block font-serif text-base text-manteca-50">WhatsApp</strong>
+                  <span className="text-manteca-100/70">{siteConfig.phone}</span>
+                </p>
+              </div>
             </div>
           </div>
 
-          <div className="flex flex-col items-start gap-4 rounded-3xl bg-manteca-100/10 p-8 backdrop-blur-sm lg:items-start">
-            <p className="font-serif text-xl font-semibold text-white">
-              ¿Listo para pedir tus pastas?
+          <div className="relative flex flex-col items-start gap-5 overflow-hidden rounded-[2.5rem] border border-manteca-100/15 bg-white/[0.06] p-9 backdrop-blur-sm">
+            <PastaRibbon tone="dark" />
+            <p className="font-serif text-2xl font-bold leading-snug text-manteca-50">
+              ¿Listo para pedir
+              <br />
+              tus pastas?
             </p>
-            <p className="text-sm text-manteca-100/70">
+            <p className="text-sm leading-relaxed text-manteca-100/70">
               Armá tu carrito y confirmá tu pedido en unos minutos, o escribinos
-              directamente.
+              directamente por WhatsApp.
             </p>
             <div className="mt-2 flex flex-wrap gap-3">
               <Button href="/pastas" variant="white">
@@ -66,8 +83,8 @@ export function ContactPreview() {
               </Button>
               <Button
                 href={whatsappUrl}
-                variant="ghost"
-                className="border border-manteca-100/40 text-manteca-100 hover:bg-manteca-100/10 hover:text-white"
+                variant="dark"
+                className="bg-wa text-white shadow-[0_14px_28px_-14px_rgb(30_168_91/0.8)] hover:bg-wa-dark"
               >
                 <MessageCircle className="h-4 w-4" aria-hidden="true" />
                 Escribinos

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import { MotionConfig } from "motion/react";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
@@ -70,7 +71,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es" className={`${playfair.variable} ${inter.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col bg-manteca-50 text-cocoa-800">
@@ -80,21 +81,29 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Saltar al contenido
         </a>
-        <Suspense
-          fallback={
-            <div className="sticky top-0 z-40 h-16 border-b border-cocoa-400/20 bg-manteca-100/90 lg:h-20" />
-          }
-        >
-          <Header />
-        </Suspense>
-        <main id="contenido" className="flex-1">
-          {children}
-        </main>
-        <Footer />
-        <CartDrawer />
-        <SearchDialog />
-        <MobileMenu />
-        <FloatingWhatsApp />
+        <div
+          aria-hidden="true"
+          className="grain-overlay pointer-events-none fixed inset-0 z-[100] opacity-[0.05] mix-blend-soft-light"
+        />
+        <MotionConfig reducedMotion="user">
+          <Suspense
+            fallback={
+              <div className="sticky top-0 z-40 px-4 pb-3 pt-3 sm:px-6 sm:pt-4">
+                <div className="mx-auto h-14 max-w-7xl rounded-full border border-cocoa-400/20 bg-[#fdfaf2]/80 shadow-soft lg:max-w-none" />
+              </div>
+            }
+          >
+            <Header />
+          </Suspense>
+          <main id="contenido" className="flex-1">
+            {children}
+          </main>
+          <Footer />
+          <CartDrawer />
+          <SearchDialog />
+          <MobileMenu />
+          <FloatingWhatsApp />
+        </MotionConfig>
       </body>
     </html>
   );

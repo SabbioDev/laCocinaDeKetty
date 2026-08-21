@@ -8,9 +8,12 @@ export function FloatingWhatsApp() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chatear por WhatsApp con La Cocina Ketty"
-      className="fixed bottom-5 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform duration-200 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2"
+      className="fixed bottom-5 right-5 z-40 flex h-14 items-center gap-2.5 rounded-full bg-wa py-2 pl-3.5 pr-4 text-white shadow-[0_16px_30px_-12px_rgb(30_168_91/0.7)] transition-all duration-300 hover:scale-[1.03] hover:bg-wa-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-wa focus-visible:ring-offset-2"
     >
-      <MessageCircle className="h-7 w-7" aria-hidden="true" />
+      <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/15">
+        <MessageCircle className="h-5 w-5" aria-hidden="true" />
+      </span>
+      <span className="text-sm font-semibold">WhatsApp</span>
     </a>
   );
 }

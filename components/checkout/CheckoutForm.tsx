@@ -92,19 +92,19 @@ export function CheckoutForm() {
   if (orderUrl) {
     return (
       <div className="container-ketty mx-auto max-w-2xl py-16 sm:py-24">
-        <div className="flex flex-col items-center gap-5 rounded-3xl border border-cocoa-400/20 bg-white p-8 text-center shadow-soft">
-          <span className="flex h-20 w-20 items-center justify-center rounded-full bg-emerald-600/10 text-emerald-600">
+        <div className="flex flex-col items-center gap-5 rounded-[2rem] border border-cocoa-400/20 bg-[#fdfaf2] p-10 text-center shadow-card">
+          <span className="flex h-20 w-20 items-center justify-center rounded-full bg-sage-100 text-sage-700">
             <CheckCircle2 className="h-10 w-10" aria-hidden="true" />
           </span>
           <h1 className="font-serif text-3xl font-bold text-cocoa-800">
             ¡Pedido listo!
           </h1>
-          <p className="max-w-md text-sm leading-relaxed text-cocoa-500">
+          <p className="max-w-md text-sm leading-relaxed text-cocoa-600">
             Abrimos WhatsApp con tu pedido armado. Solo confirmá el envío con
             nuestro equipo y ¡listo! Si no se abrió, tocá el botón de abajo.
           </p>
           <div className="mt-2 flex flex-wrap justify-center gap-3">
-            <Button href={orderUrl} target="_blank" rel="noopener noreferrer" className="bg-[#25D366] hover:bg-[#1ebe5b]">
+            <Button href={orderUrl} target="_blank" rel="noopener noreferrer" className="bg-wa hover:bg-wa-dark">
               <MessageCircle className="h-4 w-4" aria-hidden="true" />
               Abrir WhatsApp
             </Button>
@@ -112,7 +112,7 @@ export function CheckoutForm() {
               Seguir comprando
             </Button>
           </div>
-          <p className="text-xs text-cocoa-400">
+          <p className="text-xs text-cocoa-600">
             En esta versión no se cobra ningún pago real. El pago se coordina por WhatsApp.
           </p>
         </div>
@@ -342,23 +342,23 @@ export function CheckoutForm() {
           </fieldset>
         </form>
 
-        <aside className="h-fit rounded-3xl border border-cocoa-400/20 bg-white p-6 lg:sticky lg:top-28">
-          <h2 className="font-serif text-xl font-semibold text-cocoa-800">
+        <aside className="h-fit rounded-[2rem] border border-cocoa-400/20 bg-[#fdfaf2] p-7 shadow-sm lg:sticky lg:top-28">
+          <h2 className="font-serif text-2xl font-bold text-cocoa-800">
             Resumen del pedido
           </h2>
           <ul className="mt-5 flex flex-col gap-4">
             {items.map((item) => (
               <li key={item.productId} className="flex items-center gap-3">
-                <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl">
+                <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-2xl bg-manteca-200">
                   <Image src={item.image} alt={item.name} fill sizes="56px" className="object-cover" />
                 </span>
                 <span className="flex min-w-0 flex-1 flex-col">
                   <span className="truncate text-sm font-medium text-cocoa-800">{item.name}</span>
-                  <span className="text-xs text-cocoa-400">
+                  <span className="txt-num text-xs text-cocoa-600">
                     {item.quantity} × {formatPrice(item.price)}
                   </span>
                 </span>
-                <span className="shrink-0 text-sm font-semibold text-cocoa-800">
+                <span className="txt-num shrink-0 text-sm font-semibold text-cocoa-800">
                   {formatPrice(item.price * item.quantity)}
                 </span>
               </li>
@@ -367,24 +367,24 @@ export function CheckoutForm() {
 
           <dl className="mt-6 flex flex-col gap-3 border-t border-cocoa-400/20 pt-5 text-sm">
             <div className="flex items-center justify-between">
-              <dt className="text-cocoa-500">Subtotal</dt>
-              <dd className="font-semibold text-cocoa-800">{formatPrice(subtotal)}</dd>
+              <dt className="text-cocoa-600">Subtotal</dt>
+              <dd className="txt-num font-semibold text-cocoa-800">{formatPrice(subtotal)}</dd>
             </div>
             <div className="flex items-center justify-between">
-              <dt className="text-cocoa-500">Envío</dt>
-              <dd className="font-medium text-cocoa-600">
+              <dt className="text-cocoa-600">Envío</dt>
+              <dd className="txt-num font-medium text-cocoa-600">
                 {summary.shipping > 0 ? formatPrice(summary.shipping) : "Gratis"}
               </dd>
             </div>
             <div className="flex items-center justify-between border-t border-cocoa-400/20 pt-3">
               <dt className="font-semibold text-cocoa-800">Total</dt>
-              <dd className="font-serif text-2xl font-bold text-brand-700">
+              <dd className="txt-num font-serif text-2xl font-bold text-brand-700">
                 {formatPrice(summary.total)}
               </dd>
             </div>
           </dl>
 
-          <p className="mt-4 rounded-xl bg-manteca-200/70 px-4 py-3 text-xs leading-relaxed text-cocoa-600">
+          <p className="mt-4 rounded-2xl bg-manteca-200/70 px-4 py-3 text-xs leading-relaxed text-cocoa-600">
             Al finalizar se abre WhatsApp con tu pedido armado para coordinar la
             entrega. No se realiza un pago real en esta versión.
           </p>
@@ -401,7 +401,7 @@ export function CheckoutForm() {
           </Button>
           <Link
             href="/carrito"
-            className="mt-3 block text-center text-xs font-medium text-cocoa-500 underline-offset-4 hover:text-brand-700 hover:underline"
+            className="mt-3 block text-center text-xs font-medium text-cocoa-600 underline-offset-4 hover:text-brand-700 hover:underline"
           >
             Volver al carrito
           </Link>

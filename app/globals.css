@@ -4,41 +4,54 @@
   --font-serif: var(--font-playfair), "Playfair Display", "Georgia", serif;
   --font-sans: var(--font-inter), "Inter", "Helvetica Neue", Arial, sans-serif;
 
-  /* Manteca / crema cálida */
-  --color-manteca-50: #f6e2ce;
-  --color-manteca-100: #f9eede;
-  --color-manteca-200: #f2dcbe;
-  --color-manteca-300: #ead0ad;
-  --color-manteca-400: #dcba92;
-  --color-manteca-500: #c89f6d;
+  /* Papel manteca */
+  --color-manteca-50: #fbf4e6;
+  --color-manteca-100: #f4e8d1;
+  --color-manteca-200: #ebd9b4;
+  --color-manteca-300: #dfc28e;
+  --color-manteca-400: #cba36a;
+  --color-manteca-500: #b18748;
 
-  /* Rojo de marca */
-  --color-brand-500: #c0392b;
-  --color-brand-600: #a62626;
-  --color-brand-700: #8f1d1d;
-  --color-brand-800: #711515;
+  /* Pomodoro (rojo de marca) */
+  --color-brand-500: #c24a30;
+  --color-brand-600: #a83a24;
+  --color-brand-700: #8b2d1b;
+  --color-brand-800: #6c2214;
 
-  /* Marrones cálidos para texto / detalles */
-  --color-cocoa-400: #a08768;
-  --color-cocoa-500: #7c5f42;
-  --color-cocoa-600: #5f4630;
-  --color-cocoa-700: #473525;
-  --color-cocoa-800: #322416;
+  /* Tinta café */
+  --color-cocoa-400: #a4885f;
+  --color-cocoa-500: #7d5a3a;
+  --color-cocoa-600: #5f452e;
+  --color-cocoa-700: #47311f;
+  --color-cocoa-800: #2b1c11;
+  --color-cocoa-900: #1b110a;
 
-  --shadow-soft: 0 10px 40px -12px rgb(71 53 37 / 0.18);
-  --shadow-card: 0 6px 24px -10px rgb(71 53 37 / 0.25);
+  /* Éxito (oliva), dorado para estrellas, verde WhatsApp */
+  --color-sage-100: #ecf1e2;
+  --color-sage-600: #5c7148;
+  --color-sage-700: #465635;
+  --color-gold: #d9a441;
+  --color-wa: #1ea85b;
+  --color-wa-dark: #168a4a;
 
+  --shadow-soft: 0 18px 50px -20px rgb(43 28 17 / 0.25);
+  --shadow-card: 0 12px 36px -16px rgb(43 28 17 / 0.3);
+  --shadow-lift: 0 30px 80px -32px rgb(24 14 8 / 0.45);
+
+  --radius-3xl: 1.5rem;
   --radius-4xl: 2rem;
+  --radius-5xl: 2.75rem;
 }
 
 :root {
-  --background: #f6e2ce;
-  --foreground: #473525;
+  --background: #fbf4e6;
+  --foreground: #2b1c11;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
   }
 
   body {
@@ -46,11 +59,12 @@
     color: var(--foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
   ::selection {
-    background-color: #a62626;
-    color: #fff8e7;
+    background-color: #8b2d1b;
+    color: #fbf4e6;
   }
 
   h1,
@@ -58,6 +72,24 @@
   h3,
   h4 {
     font-family: var(--font-serif);
+  }
+
+  :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+    outline: 2px solid var(--color-brand-600);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
@@ -68,5 +100,36 @@
 
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Números tabulares: los precios no tiemblan mientras cambian */
+  .txt-num {
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+
+  /* Etiqueta pequeña estilo carta */
+  .eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  /* Grano de película sutil */
+  .grain-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    background-size: 140px 140px;
+  }
+
+  /* Textura de papel: punto fino cálido */
+  .paper-dots {
+    background-image: radial-gradient(circle at 1px 1px, rgb(139 45 27 / 0.08) 1px, transparent 0);
+    background-size: 26px 26px;
+  }
+
+  /* Card de superficie clara */
+  .surface {
+    background-color: #fdfaf2;
+    border: 1px solid rgb(196 160 110 / 0.28);
   }
 }

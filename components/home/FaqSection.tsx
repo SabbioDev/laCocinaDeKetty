@@ -7,16 +7,17 @@ export function FaqSection() {
   const items = faqs.slice(0, 6).map((faq, index) => ({ id: String(index), ...faq }));
 
   return (
-    <section className="bg-manteca-50 py-16 sm:py-24" aria-labelledby="faq-titulo">
+    <section className="bg-manteca-50 py-20 sm:py-28">
       <div className="container-ketty">
         <SectionHeading
           eyebrow="Ayuda"
           title="Preguntas frecuentes"
           subtitle="Las dudas más comunes antes de concretar tu pedido."
+          id="faq-titulo"
         />
         <div className="mx-auto max-w-3xl">
           <Accordion items={items} />
-          <div className="mt-8 flex justify-center">
+          <div className="mt-10 flex justify-center">
             <Button href="/preguntas-frecuentes" variant="outline">
               Ver todas las preguntas
             </Button>

@@ -39,14 +39,14 @@ export function CartView() {
           <button
             type="button"
             onClick={clear}
-            className="inline-flex items-center gap-1.5 rounded-full border border-cocoa-400/40 px-4 py-2 text-sm font-medium text-cocoa-500 transition-colors hover:border-brand-600 hover:text-brand-700"
+            className="inline-flex items-center gap-1.5 rounded-full border border-cocoa-400/40 px-4 py-2 text-sm font-medium text-cocoa-600 transition-colors hover:border-brand-600 hover:text-brand-700"
           >
             <Trash2 className="h-4 w-4" aria-hidden="true" />
             Vaciar carrito
           </button>
         </div>
 
-        <ul className="divide-y divide-cocoa-400/15 rounded-3xl border border-cocoa-400/20 bg-white px-5">
+        <ul className="divide-y divide-cocoa-400/15 rounded-[2rem] border border-cocoa-400/20 bg-[#fdfaf2] px-6 shadow-sm">
           {items.map((item) => (
             <li key={item.productId} className="py-5">
               <CartItemRow productId={item.productId} />
@@ -62,31 +62,31 @@ export function CartView() {
         </Link>
       </div>
 
-      <aside className="h-fit rounded-3xl border border-cocoa-400/20 bg-white p-6 lg:sticky lg:top-28">
-        <h2 className="font-serif text-xl font-semibold text-cocoa-800">Resumen</h2>
-        <dl className="mt-5 flex flex-col gap-3 text-sm">
+      <aside className="h-fit rounded-[2rem] border border-cocoa-400/20 bg-[#fdfaf2] p-7 shadow-sm lg:sticky lg:top-28">
+        <h2 className="font-serif text-2xl font-bold text-cocoa-800">Resumen</h2>
+        <dl className="mt-6 flex flex-col gap-3.5 text-sm">
           <div className="flex items-center justify-between">
-            <dt className="text-cocoa-500">Subtotal</dt>
-            <dd className="font-semibold text-cocoa-800">{formatPrice(subtotal)}</dd>
+            <dt className="text-cocoa-600">Subtotal</dt>
+            <dd className="txt-num font-semibold text-cocoa-800">{formatPrice(subtotal)}</dd>
           </div>
           <div className="flex items-center justify-between">
-            <dt className="text-cocoa-500">Envío</dt>
+            <dt className="text-cocoa-600">Envío</dt>
             <dd className="font-medium text-cocoa-600">
               {missingForFreeShipping > 0 ? (
                 <span className="inline-flex flex-col items-end">
                   <span>Se calcula en el checkout</span>
-                  <span className="text-xs text-cocoa-400">
+                  <span className="text-xs text-cocoa-600">
                     Gratis desde {formatPrice(siteConfig.shipping.freeOver)}
                   </span>
                 </span>
               ) : (
-                <span className="text-emerald-700">Gratis</span>
+                <span className="text-sage-700">Gratis</span>
               )}
             </dd>
           </div>
-          <div className="flex items-center justify-between border-t border-cocoa-400/20 pt-3">
+          <div className="flex items-center justify-between border-t border-cocoa-400/20 pt-3.5">
             <dt className="font-semibold text-cocoa-800">Total</dt>
-            <dd className="font-serif text-2xl font-bold text-brand-700">
+            <dd className="txt-num font-serif text-2xl font-bold text-brand-700">
               {formatPrice(subtotal)}
             </dd>
           </div>
@@ -99,7 +99,7 @@ export function CartView() {
             Agregar más pastas
           </Button>
         </div>
-        <p className="mt-4 text-center text-xs text-cocoa-400">
+        <p className="mt-4 text-center text-xs text-cocoa-600">
           Al confirmar, tu pedido se envía por WhatsApp para coordinar envío o retiro.
         </p>
       </aside>

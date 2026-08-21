@@ -27,7 +27,7 @@ export function CartDrawer() {
             <h3 className="font-serif text-xl font-semibold text-cocoa-800">
               Tu carrito está vacío
             </h3>
-            <p className="mt-1 text-sm text-cocoa-500">
+            <p className="mt-1 text-sm text-cocoa-600">
               Agregá alguna de nuestras pastas caseras para empezar.
             </p>
           </div>
@@ -47,15 +47,15 @@ export function CartDrawer() {
             </ul>
 
             {missingForFreeShipping > 0 ? (
-              <p className="rounded-xl bg-manteca-200/70 px-4 py-3 text-xs text-cocoa-600">
+              <p className="rounded-2xl bg-manteca-200/70 px-4 py-3 text-xs text-cocoa-600">
                 Te faltan{" "}
-                <strong className="text-brand-700">
+                <strong className="txt-num text-brand-700">
                   {formatPrice(missingForFreeShipping)}
                 </strong>{" "}
                 para envío gratis.
               </p>
             ) : (
-              <p className="rounded-xl bg-manteca-200/70 px-4 py-3 text-xs font-medium text-emerald-700">
+              <p className="rounded-2xl bg-sage-100 px-4 py-3 text-xs font-medium text-sage-700">
                 ¡Tenés envío gratis!
               </p>
             )}
@@ -64,7 +64,7 @@ export function CartDrawer() {
           <div className="border-t border-cocoa-400/20 bg-manteca-100 px-5 py-4">
             <div className="mx-auto mb-4 flex max-w-md items-center justify-between">
               <span className="text-sm text-cocoa-600">Subtotal</span>
-              <span className="font-serif text-lg font-bold text-cocoa-800">
+              <span className="txt-num font-serif text-lg font-bold text-cocoa-800">
                 {formatPrice(subtotal)}
               </span>
             </div>
@@ -84,7 +84,7 @@ export function CartDrawer() {
             <Link
               href="/pastas"
               onClick={closeCart}
-              className="mt-3 block text-center text-xs font-medium text-cocoa-500 underline-offset-4 hover:text-brand-700 hover:underline"
+              className="mt-3 block text-center text-xs font-medium text-cocoa-600 underline-offset-4 hover:text-brand-700 hover:underline"
             >
               Seguir comprando
             </Link>

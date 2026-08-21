@@ -107,18 +107,18 @@ export default function NosotrosPage() {
               const Icon = processIcons[index] ?? Egg;
               return (
                 <Reveal key={step.title} delay={index * 0.08}>
-                  <li className="relative flex h-full flex-col gap-4 rounded-3xl border border-cocoa-400/20 bg-white p-6">
+                  <li className="relative flex h-full flex-col gap-4 rounded-[2rem] border border-cocoa-400/20 bg-[#fdfaf2] p-7 shadow-sm">
                     <span
-                      className="absolute right-5 top-4 font-serif text-5xl font-bold text-manteca-300"
+                      className="absolute right-5 top-4 font-serif text-5xl font-bold italic text-brand-600/15"
                       aria-hidden="true"
                     >
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <span className="flex h-13 w-13 items-center justify-center rounded-2xl bg-manteca-200 p-3 text-brand-700">
+                    <span className="flex h-13 w-13 items-center justify-center rounded-2xl bg-brand-600/10 p-3 text-brand-700">
                       <Icon className="h-7 w-7" aria-hidden="true" />
                     </span>
-                    <h3 className="font-serif text-xl font-semibold text-cocoa-800">{step.title}</h3>
-                    <p className="text-sm leading-relaxed text-cocoa-500">{step.description}</p>
+                    <h3 className="font-serif text-xl font-bold text-cocoa-800">{step.title}</h3>
+                    <p className="text-sm leading-relaxed text-cocoa-600">{step.description}</p>
                   </li>
                 </Reveal>
               );
@@ -138,12 +138,12 @@ export default function NosotrosPage() {
               const Icon = benefitIcons[0] ?? CheckCircle2;
               return (
                 <Reveal key={benefit.title} delay={index * 0.06}>
-                  <li className="flex h-full flex-col gap-3 rounded-3xl bg-white p-6 shadow-soft">
+                  <li className="flex h-full flex-col gap-3 rounded-[2rem] border border-cocoa-400/20 bg-[#fdfaf2] p-6 shadow-sm transition-shadow hover:shadow-card">
                     <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-600/10 text-brand-700">
                       <Icon className="h-6 w-6" aria-hidden="true" />
                     </span>
-                    <h3 className="font-serif text-lg font-semibold text-cocoa-800">{benefit.title}</h3>
-                    <p className="text-sm leading-relaxed text-cocoa-500">{benefit.description}</p>
+                    <h3 className="font-serif text-lg font-bold text-cocoa-800">{benefit.title}</h3>
+                    <p className="text-sm leading-relaxed text-cocoa-600">{benefit.description}</p>
                   </li>
                 </Reveal>
               );
@@ -152,9 +152,17 @@ export default function NosotrosPage() {
         </div>
       </section>
 
-      <section className="bg-cocoa-800 py-16 text-center text-manteca-100">
-        <div className="container-ketty mx-auto flex max-w-2xl flex-col items-center gap-5">
-          <h2 className="text-balance font-serif text-3xl font-bold sm:text-4xl">
+      <section className="relative overflow-hidden bg-cocoa-900 py-16 text-center text-manteca-100 sm:py-24">
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(40rem 22rem at 50% -30%, rgb(194 74 48 / 0.3), transparent 60%)",
+          }}
+          aria-hidden="true"
+        />
+        <div className="container-ketty relative mx-auto flex max-w-2xl flex-col items-center gap-5">
+          <h2 className="text-balance font-serif text-4xl font-bold italic sm:text-5xl">
             ¿Probanos?
           </h2>
           <p className="text-manteca-100/70">

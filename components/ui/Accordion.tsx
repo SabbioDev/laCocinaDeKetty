@@ -22,7 +22,7 @@ function AccordionRow({
   panelId: string;
 }) {
   return (
-    <div className="overflow-hidden rounded-2xl border border-cocoa-400/30 bg-white">
+    <div className="overflow-hidden rounded-3xl border border-cocoa-400/25 bg-[#fdfaf2] shadow-sm transition-shadow hover:shadow-card">
       <h3>
         <button
           type="button"
@@ -30,18 +30,19 @@ function AccordionRow({
           aria-expanded={isOpen}
           aria-controls={`${panelId}-panel`}
           onClick={onToggle}
-          className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600"
+          className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left focus-visible:outline-none"
         >
-          <span className="font-serif text-base font-semibold text-cocoa-800 sm:text-lg">
+          <span className="font-serif text-lg font-semibold text-cocoa-800 sm:text-xl">
             {item.question}
           </span>
-          <ChevronDown
-            aria-hidden="true"
+          <span
             className={cn(
-              "h-5 w-5 shrink-0 text-brand-600 transition-transform duration-300",
-              isOpen && "rotate-180",
+              "flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-cocoa-400/30 text-brand-600 transition-transform duration-300",
+              isOpen && "rotate-180 bg-brand-600 text-white border-brand-600",
             )}
-          />
+          >
+            <ChevronDown aria-hidden="true" className="h-4 w-4" />
+          </span>
         </button>
       </h3>
       <div
@@ -54,7 +55,7 @@ function AccordionRow({
         )}
       >
         <div className="overflow-hidden">
-          <p className="px-5 pb-5 text-sm leading-relaxed text-cocoa-500">
+          <p className="px-6 pb-6 text-sm leading-relaxed text-cocoa-600 sm:text-base">
             {item.answer}
           </p>
         </div>
@@ -68,7 +69,7 @@ export function Accordion({ items }: { items: AccordionItem[] }) {
   const [openId, setOpenId] = useState<string | null>(items[0]?.id ?? null);
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-4">
       {items.map((item, index) => (
         <AccordionRow
           key={item.id}

@@ -28,7 +28,7 @@ export function QuantitySelector({
   return (
     <div
       className={cn(
-        "inline-flex items-center rounded-full border border-cocoa-400/50 bg-white",
+        "inline-flex items-center rounded-full border border-cocoa-400/40 bg-[#fdfaf2] shadow-sm",
         className,
       )}
     >
@@ -37,11 +37,11 @@ export function QuantitySelector({
         aria-label={`Disminuir ${ariaLabel}`}
         disabled={disabled || !canDecrease}
         onClick={() => onChange(value - 1)}
-        className="rounded-l-full p-2.5 text-cocoa-600 transition-colors hover:text-brand-600 disabled:opacity-30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600"
+        className="rounded-l-full p-2.5 text-cocoa-600 transition-colors hover:text-brand-600 disabled:opacity-30 focus-visible:outline-none"
       >
         <Minus className="h-4 w-4" aria-hidden="true" />
       </button>
-      <span className="min-w-8 text-center text-sm font-semibold text-cocoa-800" aria-live="polite">
+      <span className="min-w-8 text-center txt-num text-sm font-semibold text-cocoa-800" aria-live="polite">
         {value}
       </span>
       <button
@@ -49,7 +49,7 @@ export function QuantitySelector({
         aria-label={`Aumentar ${ariaLabel}`}
         disabled={disabled || !canIncrease}
         onClick={() => onChange(value + 1)}
-        className="rounded-r-full p-2.5 text-cocoa-600 transition-colors hover:text-brand-600 disabled:opacity-30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600"
+        className="rounded-r-full p-2.5 text-cocoa-600 transition-colors hover:text-brand-600 disabled:opacity-30 focus-visible:outline-none"
       >
         <Plus className="h-4 w-4" aria-hidden="true" />
       </button>

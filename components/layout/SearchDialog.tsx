@@ -44,9 +44,9 @@ export function SearchDialog() {
 
   return (
     <Modal open={isSearchOpen} onClose={handleClose} title="Buscar productos">
-      <form onSubmit={handleSubmit} className="border-b border-cocoa-400/20">
-        <div className="flex items-center gap-3 px-5 py-4">
-          <Search className="h-5 w-5 shrink-0 text-cocoa-400" aria-hidden="true" />
+      <form onSubmit={handleSubmit} className="border-b border-cocoa-400/20 px-6 py-4">
+        <div className="flex items-center gap-3 rounded-full border border-cocoa-400/30 bg-[#fdfaf2] px-4 py-2.5">
+          <Search className="h-5 w-5 shrink-0 text-cocoa-600" aria-hidden="true" />
           <input
             ref={inputRef}
             type="search"
@@ -54,14 +54,14 @@ export function SearchDialog() {
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Buscá ravioles, ñoquis, sorrentinos…"
             aria-label="Buscar productos"
-            className="w-full bg-transparent text-base text-cocoa-800 placeholder:text-cocoa-400 focus:outline-none"
+            className="w-full bg-transparent text-base text-cocoa-800 placeholder:text-cocoa-600/60 focus:outline-none"
           />
           {query ? (
             <button
               type="button"
               onClick={() => setQuery("")}
               aria-label="Limpiar búsqueda"
-              className="rounded-full p-1 text-xs font-semibold text-cocoa-400 hover:text-brand-600"
+              className="rounded-full px-2 py-1 text-xs font-semibold text-cocoa-600 hover:text-brand-600"
             >
               Limpiar
             </button>
@@ -71,17 +71,15 @@ export function SearchDialog() {
 
       <div className="max-h-[60vh] overflow-y-auto">
         {!showResults ? (
-          <div className="flex flex-col gap-3 px-5 py-5">
-            <p className="text-xs font-semibold uppercase tracking-widest text-cocoa-400">
-              Sugerencias
-            </p>
+          <div className="flex flex-col gap-3 px-6 py-5">
+            <p className="eyebrow text-cocoa-600">Sugerencias</p>
             <div className="flex flex-wrap gap-2">
               {suggestions.map((suggestion) => (
                 <button
                   key={suggestion}
                   type="button"
                   onClick={() => setQuery(suggestion)}
-                  className="rounded-full border border-cocoa-400/40 px-3.5 py-1.5 text-sm text-cocoa-600 transition-colors hover:border-brand-600 hover:text-brand-700"
+                  className="rounded-full border border-cocoa-400/40 bg-[#fdfaf2] px-4 py-2 text-sm font-medium text-cocoa-700 transition-colors hover:border-brand-600 hover:text-brand-700"
                 >
                   {suggestion}
                 </button>
@@ -91,10 +89,10 @@ export function SearchDialog() {
         ) : noResults ? (
           <div className="flex flex-col items-center gap-2 px-6 py-10 text-center">
             <SearchX className="h-8 w-8 text-cocoa-400" aria-hidden="true" />
-            <p className="font-serif text-lg font-semibold text-cocoa-800">
+            <p className="font-serif text-xl font-semibold text-cocoa-800">
               No encontramos pastas con ese nombre.
             </p>
-            <p className="text-sm text-cocoa-500">
+            <p className="text-sm text-cocoa-600">
               Probá buscando ravioles, ñoquis o sorrentinos.
             </p>
           </div>
@@ -105,9 +103,9 @@ export function SearchDialog() {
                 <Link
                   href={`/productos/${product.slug}`}
                   onClick={handleClose}
-                  className="flex items-center gap-4 px-5 py-3 transition-colors hover:bg-manteca-100 focus-visible:outline-none focus-visible:bg-manteca-100"
+                  className="flex items-center gap-4 px-6 py-3 transition-colors hover:bg-manteca-100 focus-visible:bg-manteca-100 focus-visible:outline-none"
                 >
-                  <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl">
+                  <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-2xl bg-manteca-200">
                     <Image
                       src={product.images[0]}
                       alt={product.name}
@@ -120,11 +118,11 @@ export function SearchDialog() {
                     <span className="truncate font-medium text-cocoa-800">
                       {product.name}
                     </span>
-                    <span className="text-xs text-cocoa-400">
+                    <span className="text-xs text-cocoa-600">
                       {getCategoryName(product.category)}
                     </span>
                   </span>
-                  <span className="shrink-0 font-semibold text-brand-700">
+                  <span className="shrink-0 txt-num font-semibold text-brand-700">
                     {formatPrice(product.price)}
                   </span>
                 </Link>
@@ -135,7 +133,7 @@ export function SearchDialog() {
       </div>
 
       {showResults && !noResults ? (
-        <div className="border-t border-cocoa-400/20 px-5 py-3">
+        <div className="border-t border-cocoa-400/20 px-6 py-3">
           <Link
             href={`/pastas?q=${encodeURIComponent(query)}`}
             onClick={handleClose}

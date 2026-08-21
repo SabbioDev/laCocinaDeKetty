@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Wheat } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function Logo({ className }: { className?: string }) {
@@ -7,18 +6,17 @@ export function Logo({ className }: { className?: string }) {
     <Link
       href="/"
       aria-label="La Cocina Ketty - Inicio"
-      className={cn("group inline-flex items-center gap-2", className)}
+      className={cn("group inline-flex items-center gap-2.5", className)}
     >
-      <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-600 text-white transition-transform duration-300 group-hover:rotate-[-12deg]">
-        <Wheat className="h-5 w-5" aria-hidden="true" />
+      <span className="relative flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-brand-500 to-brand-700 text-[#fbf4e6] shadow-[0_10px_20px_-10px_rgb(168_58_36/0.8)] transition-transform duration-500 group-hover:-rotate-6">
+        <span className="font-serif text-xl font-bold leading-none">K</span>
+        <span className="absolute -right-0.5 -top-0.5 flex h-3 w-3 items-center justify-center rounded-full border-2 border-[#fbf4e6] bg-gold" aria-hidden="true" />
       </span>
       <span className="flex flex-col leading-none">
-        <span className="font-serif text-lg font-bold text-cocoa-800 sm:text-xl">
-          La Cocina <span className="text-brand-600">Ketty</span>
+        <span className="font-serif text-xl font-bold tracking-tight text-cocoa-800">
+          La Cocina <span className="italic text-brand-600">Ketty</span>
         </span>
-        <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-cocoa-400">
-          Pastas caseras
-        </span>
+        <span className="eyebrow mt-1 text-cocoa-600">Pastas caseras</span>
       </span>
     </Link>
   );

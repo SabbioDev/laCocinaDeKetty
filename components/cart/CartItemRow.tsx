@@ -43,12 +43,12 @@ export function CartItemRow({ productId }: { productId: string }) {
             type="button"
             aria-label={`Eliminar ${item.name} del carrito`}
             onClick={() => removeItem(item.productId)}
-            className="rounded-full p-1.5 text-cocoa-400 transition-colors hover:bg-manteca-200 hover:text-brand-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600"
+            className="rounded-full p-1.5 text-cocoa-600 transition-colors hover:bg-manteca-200 hover:text-brand-600 focus-visible:outline-none"
           >
             <Trash2 className="h-4 w-4" aria-hidden="true" />
           </button>
         </div>
-        <p className="text-xs text-cocoa-400">
+        <p className="text-xs text-cocoa-600">
           {formatPrice(item.price)} / unidad
         </p>
         <div className="mt-2 flex items-center justify-between">
@@ -57,7 +57,7 @@ export function CartItemRow({ productId }: { productId: string }) {
             onChange={(value) => updateQuantity(item.productId, value)}
             className="scale-90 origin-left"
           />
-          <span className={cn("text-sm font-bold", !item.available && "text-cocoa-400")}>
+          <span className={cn("txt-num text-sm font-bold", !item.available && "text-cocoa-500")}>
             {formatPrice(item.price * item.quantity)}
           </span>
         </div>
