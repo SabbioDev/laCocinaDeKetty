@@ -113,6 +113,59 @@ export const processSteps: ProcessStep[] = [
   },
 ];
 
+export interface CookingTimeItem {
+  id: string;
+  product: string;
+  minutes: string;
+  tip: string;
+}
+
+export const cookingTimes: CookingTimeItem[] = [
+  {
+    id: "c1",
+    product: "Ravioles",
+    minutes: "3–4 min",
+    tip: "Sacalos apenas empiecen a flotar en agua hirviendo con sal.",
+  },
+  {
+    id: "c2",
+    product: "Sorrentinos",
+    minutes: "4–5 min",
+    tip: "Son generosos: dejá que suban y contá un minuto más antes de retirarlos.",
+  },
+  {
+    id: "c3",
+    product: "Tallarines",
+    minutes: "1–2 min",
+    tip: "Se cocinan rapidísimo, probá uno al minuto y regulá según tu punto.",
+  },
+  {
+    id: "c4",
+    product: "Ñoquis",
+    minutes: "2–3 min",
+    tip: "Apenas flotan están listos. Si los dejás más, se deshacen.",
+  },
+  {
+    id: "c5",
+    product: "Lasagnas",
+    minutes: "35–40 min",
+    tip: "Al horno a 180°C hasta que la superficie se dore y burbujee.",
+  },
+  {
+    id: "c6",
+    product: "Rellenas",
+    minutes: "4–6 min",
+    tip: "Cocinalas en olla amplia con agua abundante y movelas con cuidado.",
+  },
+];
+
+export const cookingGuide = {
+  eyebrow: "En tu cocina",
+  title: "Tiempos de cocción",
+  subtitle:
+    "Agua abundante con sal, fuego fuerte y estos tiempos para que queden en su punto justo.",
+};
+
 export const benefits: Benefit[] = [
   {
     title: "Ingredientes seleccionados",
