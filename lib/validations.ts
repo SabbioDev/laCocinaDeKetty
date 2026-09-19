@@ -34,7 +34,7 @@ export const checkoutSchema = customerSchema
     deliveryMethod: z.enum(["retiro", "envio"], "Elegí un método de entrega"),
     address: addressSchema.optional(),
     paymentMethod: z.enum(
-      ["transferencia", "mercadopago", "efectivo"],
+      ["transferencia", "efectivo"],
       "Elegí un método de pago",
     ),
     notes: z.string().trim().max(500, "La nota es demasiado larga").optional(),

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Camera, Clock, MapPin, MessageCircle, Phone, ThumbsUp } from "lucide-react";
+import { Camera, Clock, MapPin, MessageCircle, Phone } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { PastaRibbon } from "@/components/ui/PastaRibbon";
@@ -20,7 +20,6 @@ const helpColumn = [
 
 const socialLinks = [
   { href: siteConfig.instagram, label: "Instagram", icon: Camera },
-  { href: siteConfig.facebook, label: "Facebook", icon: ThumbsUp },
 ];
 
 function FooterColumn({ title, children }: { title: string; children: React.ReactNode }) {

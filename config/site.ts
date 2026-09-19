@@ -1,9 +1,8 @@
 /**
  * Configuración central de La Cocina Ketty.
  *
- * Toda la información de la empresa puede modificarse desde este archivo.
- * Los valores sensibles (WhatsApp, email, redes) se leen de variables de
- * entorno, con valores por defecto pensados para desarrollo local.
+ * Toda la información de la empresa (contacto, horarios, zona de reparto,
+ * métodos de pago y envío) se modifica desde este archivo.
  */
 
 export interface SiteConfig {
@@ -17,10 +16,8 @@ export interface SiteConfig {
     number: string;
     message: string;
   };
-  email: string;
   phone: string;
   instagram: string;
-  facebook: string;
   address: string;
   deliveryZone: string;
   hours: Array<{ days: string; time: string }>;
@@ -34,41 +31,43 @@ export interface SiteConfig {
 export const siteConfig: SiteConfig = {
   name: "La Cocina Ketty",
   legalName: "La Cocina Ketty",
-  tagline: "Pastas caseras hechas con amor.",
+  tagline: "Pastas caseras artesanales.",
   description:
-    "Pastas caseras artesanales hechas en Argentina. Ravioles, sorrentinos, ñoquis, tallarines y mucho más.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://lacocinaketty.com.ar",
+    "Pastas caseras artesanales hechas en Argentina. Ravioles, sorrentinos, ñoquis, tallarines y más.",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://la-cocina-de-ketty.vercel.app",
   locale: "es_AR",
   whatsapp: {
-    number: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "5491100000000",
+    number: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "542477317387",
     message:
       process.env.NEXT_PUBLIC_WHATSAPP_MESSAGE ??
       "¡Hola La Cocina Ketty! Quiero hacer un pedido.",
   },
-  email: process.env.NEXT_PUBLIC_EMAIL ?? "hola@lacocinaketty.com.ar",
-  phone: process.env.NEXT_PUBLIC_PHONE ?? "+54 11 1234 5678",
+  phone: process.env.NEXT_PUBLIC_PHONE ?? "+54 2477 317387",
   instagram:
-    process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? "https://instagram.com/lacocinaketty",
-  facebook:
-    process.env.NEXT_PUBLIC_FACEBOOK_URL ?? "https://facebook.com/lacocinaketty",
-  address: process.env.NEXT_PUBLIC_ADDRESS ?? "Av. Siempre Viva 1234, Buenos Aires",
+    process.env.NEXT_PUBLIC_INSTAGRAM_URL ??
+    "https://www.instagram.com/ketty.cocina",
+  address: "Pergamino, Buenos Aires",
   deliveryZone:
     process.env.NEXT_PUBLIC_DELIVERY_ZONE ??
-    "CABA y zona norte de Buenos Aires (consultá por tu barrio)",
+    "Repartimos en Pergamino. Los pedidos se toman con un mínimo de 24 hs de anticipación.",
   hours: [
-    { days: "Lunes a viernes", time: "9:00 a 19:00" },
-    { days: "Sábados", time: "9:00 a 14:00" },
-    { days: "Domingos", time: "Cerrado" },
-  ],
-  paymentMethods: [
-    { id: "transferencia", label: "Transferencia bancaria", hint: "Te enviamos los datos y abonás desde tu home banking." },
-    { id: "mercadopago", label: "Mercado Pago", hint: "Link de pago para abonar de forma segura." },
-    { id: "efectivo", label: "Efectivo", hint: "Pagás al recibir el pedido o al retirarlo por el local." },
+    { days: "Martes a domingo", time: "9:00 a 19:00" },
+    { days: "Lunes", time: "Cerrado" },
   ],
   shipping: {
     fee: 3000,
     freeOver: 60000,
   },
+  paymentMethods: [
+    {
+      id: "transferencia",
+      label: "Transferencia bancaria",
+      hint: "CBU 0140483203658351357297 · Alias MICA.ROCHA · Titular: Micaela Rocha",
+    },
+    {
+      id: "efectivo",
+      label: "Efectivo",
+      hint: "Pagás al recibir tu pedido.",
+    },
+  ],
 };
-
-export type PaymentMethodConfig = (typeof siteConfig.paymentMethods)[number];

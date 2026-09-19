@@ -8,7 +8,6 @@ import { useForm, useWatch } from "react-hook-form";
 import {
   Banknote,
   CheckCircle2,
-  CreditCard,
   Landmark,
   MessageCircle,
   ShoppingBag,
@@ -54,7 +53,6 @@ const provinces = [
 
 const paymentIcons = {
   transferencia: Landmark,
-  mercadopago: CreditCard,
   efectivo: Banknote,
 };
 
@@ -270,7 +268,7 @@ export function CheckoutForm() {
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
                   <Input
                     label="Ciudad"
-                    placeholder="Ej: CABA"
+                    placeholder="Ej: Pergamino"
                     autoComplete="address-level2"
                     error={errors.address?.city?.message}
                     {...register("address.city")}

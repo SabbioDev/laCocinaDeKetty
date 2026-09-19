@@ -52,10 +52,10 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: "/images/og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "La Cocina Ketty - Pastas caseras artesanales",
+        url: "/images/logoKetty.png",
+        width: 1024,
+        height: 1024,
+        alt: "La Cocina Ketty - Logo pastas caseras artesanales",
       },
     ],
   },
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "La Cocina Ketty | Pastas Caseras Artesanales",
     description: siteConfig.description,
-    images: ["/images/og.jpg"],
+    images: ["/images/logoKetty.png"],
   },
   robots: {
     index: true,

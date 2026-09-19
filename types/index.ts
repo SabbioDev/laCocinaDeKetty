@@ -53,7 +53,7 @@ export interface OrderItem {
 
 export type DeliveryMethod = "retiro" | "envio";
 
-export type PaymentMethod = "transferencia" | "mercadopago" | "efectivo";
+export type PaymentMethod = "transferencia" | "efectivo";
 
 export interface CustomerData {
   firstName: string;

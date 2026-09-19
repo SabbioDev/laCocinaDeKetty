@@ -56,7 +56,7 @@ export const faqs: Faq[] = [
   {
     question: "¿Dónde realizan entregas?",
     answer:
-      "Entregamos en CABA y zona norte de Buenos Aires. Si vivís en otra zona, consultanos por WhatsApp y vemos si podemos llegar a tu barrio.",
+      "Entregamos en Pergamino. Si vivís en otra zona, consultanos por WhatsApp y vemos si podemos llegar a tu barrio.",
   },
   {
     question: "¿Cómo se conservan las pastas?",
@@ -76,7 +76,7 @@ export const faqs: Faq[] = [
   {
     question: "¿Qué medios de pago aceptan?",
     answer:
-      "Aceptamos transferencia bancaria, Mercado Pago y pago en efectivo al retirar o recibir tu pedido.",
+      "Aceptamos transferencia bancaria y pago en efectivo al retirar o recibir tu pedido.",
   },
   {
     question: "¿Puedo hacer un pedido personalizado?",
